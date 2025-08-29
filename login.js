@@ -6,6 +6,9 @@ const registerForm = document.getElementById('register-form');
 const loginMessage = document.getElementById('login-message');
 const registerMessage = document.getElementById('register-message');
 
+// 服务器地址
+const SERVER_URL = 'http://localhost:3000';
+
 // 切换表单显示
 loginTab.addEventListener('click', () => {
     loginTab.classList.add('active');
@@ -24,7 +27,7 @@ registerTab.addEventListener('click', () => {
 });
 
 // 处理注册表单提交
-registerForm.addEventListener('submit', function(e) {
+registerForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const username = document.getElementById('register-username').value;
@@ -39,67 +42,77 @@ registerForm.addEventListener('submit', function(e) {
         return;
     }
     
-    // 检查用户名是否已存在
-    const users = JSON.parse(localStorage.getItem('kardsUsers')) || [];
-    if (users.some(user => user.username === username)) {
-        registerMessage.textContent = '用户名已存在';
+    try {
+        const response = await fetch(`${SERVER_URL}/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password, nickname })
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok) {
+            registerMessage.textContent = '注册成功！请登录';
+            registerMessage.className = 'message success';
+            
+            // 清空表单
+            registerForm.reset();
+            
+            // 3秒后切换到登录表单
+            setTimeout(() => {
+                loginTab.click();
+            }, 3000);
+        } else {
+            registerMessage.textContent = result.error || '注册失败';
+            registerMessage.className = 'message error';
+        }
+    } catch (error) {
+        registerMessage.textContent = '网络错误，请稍后重试';
         registerMessage.className = 'message error';
-        return;
     }
-    
-    // 保存新用户
-    const newUser = {
-        username,
-        password,
-        nickname,
-        registerDate: new Date().toISOString()
-    };
-    
-    users.push(newUser);
-    localStorage.setItem('kardsUsers', JSON.stringify(users));
-    
-    registerMessage.textContent = '注册成功！请登录';
-    registerMessage.className = 'message success';
-    
-    // 清空表单
-    registerForm.reset();
-    
-    // 3秒后切换到登录表单
-    setTimeout(() => {
-        loginTab.click();
-    }, 3000);
 });
 
 // 处理登录表单提交
-loginForm.addEventListener('submit', function(e) {
+loginForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
     
-    // 验证用户
-    const users = JSON.parse(localStorage.getItem('kardsUsers')) || [];
-    const user = users.find(user => user.username === username && user.password === password);
-    
-    if (user) {
-        // 登录成功
-        loginMessage.textContent = '登录成功！正在跳转...';
-        loginMessage.className = 'message success';
+    try {
+        const response = await fetch(`${SERVER_URL}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password })
+        });
         
-        // 保存当前登录用户信息
-        localStorage.setItem('kardsCurrentUser', JSON.stringify({
-            username: user.username,
-            nickname: user.nickname,
-            loginTime: new Date().toISOString()
-        }));
+        const result = await response.json();
         
-        // 跳转到主页
-        setTimeout(() => {
-            window.location.href = '../主界面.html';
-        }, 2000);
-    } else {
-        // 登录失败
-        loginMessage.textContent = '用户名或密码错误';
+        if (response.ok) {
+            loginMessage.textContent = '登录成功！正在跳转...';
+            loginMessage.className = 'message success';
+            
+            // 保存当前登录用户信息到本地存储
+            localStorage.setItem('kardsCurrentUser', JSON.stringify({
+                username: result.user.username,
+                nickname: result.user.nickname,
+                loginTime: new Date().toISOString()
+            }));
+            
+            // 跳转到主页
+            setTimeout(() => {
+                window.location.href = '主界面.html';
+            }, 2000);
+        } else {
+            loginMessage.textContent = result.error || '登录失败';
+            loginMessage.className = 'message error';
+        }
+    } catch (error) {
+        loginMessage.textContent = '网络错误，请稍后重试';
         loginMessage.className = 'message error';
     }
 });
@@ -108,7 +121,6 @@ loginForm.addEventListener('submit', function(e) {
 function checkLoginStatus() {
     const currentUser = JSON.parse(localStorage.getItem('kardsCurrentUser'));
     if (currentUser) {
-        // 如果已登录，可以在这里添加一些欢迎信息
         const welcomeElement = document.createElement('div');
         welcomeElement.className = 'welcome-message';
         welcomeElement.textContent = `欢迎回来，${currentUser.nickname}！`;
