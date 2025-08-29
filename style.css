@@ -1,0 +1,306 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+}
+
+header {
+    background-color: rgba(35, 28, 26, 0.9);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #8B4513;
+}
+
+h1 {
+    color: #D2691E;
+    position: absolute;
+    left: 120px;
+    top: 0;
+    line-height: 80px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+header ul{
+    position: absolute;
+    right: 30vw;
+    top: 0;
+    line-height: 80px;
+}
+
+header li {
+    display: inline;
+    margin-right: 4vw;
+}
+
+header a{
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+header a:hover {
+    text-decoration: none;
+    background-color: rgba(210, 105, 30, 0.2);
+    color: #D2691E;
+}
+
+main {
+    padding-top: 80px; /* 为固定的header留出空间 */
+}
+
+.first{
+    background-color: rgb(18, 15, 11);
+    color: white;
+    height: 85vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url("https://steamcdn-a.akamaihd.net/steam/apps/544810/ss_0c2b6d7f8d01c8d75f04f5b152acc7c50a582b5e.1920x1080.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.first::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(210, 105, 30, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+.first h2{
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+}
+
+.first h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #8B4513, #D2691E);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.first blockquote {
+    font-size: 24px;
+    font-style: italic;
+    margin: 20px 0;
+    max-width: 80%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: 4px solid #D2691E;
+    border-radius: 0 8px 8px 0;
+}
+
+.first p{
+    color: #fef7e6;
+    font-size: 18px;
+    margin: 25px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.first a{
+    color: white;
+    text-decoration: none;
+    border: 2px solid #D2691E;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: rgba(139, 69, 19, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.first a:hover {
+    background-color: rgba(210, 105, 30, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.second {
+    background-color: #231515;
+    background-image: url("https://steamcdn-a.akamaihd.net/steam/apps/544810/ss_9f8627d9d960a7c3184a6d2ff9d8d0c9f3c5b2d7.1920x1080.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    color: white;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.second::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(35, 21, 21, 0.8);
+}
+
+.second blockquote {
+    position: relative;
+    z-index: 2;
+    font-size: 28px;
+    font-weight: bold;
+    max-width: 800px;
+    line-height: 1.6;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(210, 105, 30, 0.3);
+}
+
+footer {
+    background-color: black;
+    color: #504c4c;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border-top: 2px solid #3a2424;
+}
+
+.third {
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0a0a;
+    background-image: url("https://steamcdn-a.akamaihd.net/steam/apps/544810/ss_b5ca8d7a06b796cc3e992a7ee82f4b1f4e9a94da.1920x1080.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    color: #ACACAC;
+    align-items: center;
+    justify-items: center;
+    padding: 60px 20px;
+}
+
+.third::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.85);
+}
+
+.third-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(210, 105, 30, 0.3);
+}
+
+.third h2 {
+    font-size: 40px;
+    color: #D2691E;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.third h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #8B4513, #D2691E);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.third p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    position: relative;
+}
+
+#user-info {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: rgba(210, 105, 30, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #D2691E;
+}
+
+.welcome {
+    color: #D2691E;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.login-time {
+    color: #ACACAC;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 卡片风格元素 */
+.card-style {
+    border: 2px solid #8B4513;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: rgba(35, 28, 26, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.card-style:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+    border-color: #D2691E;
+}

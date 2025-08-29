@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kards 游戏信息 - Kards Team</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .info-container {
+            max-width: 1000px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background-color: rgba(35, 28, 26, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid #8B4513;
+        }
+        
+        .info-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(18, 15, 11, 0.7);
+            border-radius: 8px;
+            border-left: 4px solid #D2691E;
+        }
+        
+        .info-section h2 {
+            color: #D2691E;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #8B4513;
+            padding-bottom: 10px;
+        }
+        
+        .card-types {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .card-type {
+            width: 48%;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            border: 1px solid #8B4513;
+        }
+        
+        .card-type h4 {
+            color: #D2691E;
+            margin-bottom: 10px;
+        }
+        
+        .update-info {
+            background-color: rgba(139, 69, 19, 0.2);
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 3px solid #D2691E;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #D2691E;
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            border: 1px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background-color: rgba(139, 69, 19, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .nations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .nation {
+            width: 18%;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 15px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            border: 1px solid #8B4513;
+        }
+        
+        .nation h4 {
+            color: #D2691E;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kards Team</h1>
+        <nav>
+            <ul>
+                <li><a href="Kards Team 人物档案/CH.html">CH</a></li>
+                <li><a href="Kards Team 人物档案/SYC.html">SYC</a></li>
+                <li><a href="Kards Team 人物档案/YYH.HTML">YYH</a></li>
+                <li><a href="Kards Team 人物档案/SX.html">SX</a></li>
+                <li><a href="Kards Team 人物档案/login.html" id="login-link"><i class="fas fa-user"></i> 登录/注册</a></li>
+                <li><a href="主界面.html"><i class="fas fa-home"></i> 首页</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="info-container">
+            <div class="info-section">
+                <h2>Kards 游戏介绍</h2>
+                <p>Kards 是一款二战题材的策略类数字卡牌游戏，由冰岛独立工作室 1939 Games 开发。该工作室由曾创造出 EVE Online 的 CCP 公司前员工建立。Kards 将传统的收集类卡牌游戏与真实的战场策略和创新机制完美结合，为玩家带来独特的游戏体验。</p>
+                
+                <div class="update-info">
+                    <h3><i class="fas fa-newspaper"></i> 最新更新：夏季扩展包【海战】</h3>
+                    <p>v1.38.22434版本已正式上线！全新夏季扩展包【海战】带来了海军主题卡牌和全新战术选择，让玩家在海、陆、空全方位展开战略部署。</p>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>游戏特色</h2>
+                <ul>
+                    <li>真实的战场氛围：所有卡片插图均以独特的二战风格绘制，武器和单位经过严谨的调查研究，符合历史描述</li>
+                    <li>创新的前线机制：使你能够更好地守住己方支援设施并向敌人发起进攻</li>
+                    <li>多平台支持：PC、移动设备账号互通，随时随地进行游戏</li>
+                    <li>完全免费游玩：所有游戏内容均可通过游戏、每日任务和成就系统获得</li>
+                    <li>定期更新与活动：游戏会定期改进并添加新功能，举办赛事活动</li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h2>游戏国家阵营</h2>
+                <p>在Kards中，玩家需要从二战中的五个主要阵营中选择一个来打造自己的卡组，每个卡组都可添加一个盟国获得战略支援。</p>
+                
+                <div class="nations">
+                    <div class="nation">
+                        <h4>德国</h4>
+                        <p>擅长闪电战</p>
+                    </div>
+                    <div class="nation">
+                        <h4>日本</h4>
+                        <p>空中优势</p>
+                    </div>
+                    <div class="nation">
+                        <h4>苏联</h4>
+                        <p>重型装甲</p>
+                    </div>
+                    <div class="nation">
+                        <h4>美国</h4>
+                        <p>资源丰富</p>
+                    </div>
+                    <div class="nation">
+                        <h4>英国</h4>
+                        <p>防御战术</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>卡牌类型</h2>
+                <p>Kards游戏中有多种不同类型的卡牌，每种卡牌都有不同的属性和效果，玩家需要根据自己的战略进行选择。</p>
+                
+                <div class="card-types">
+                    <div class="card-type">
+                        <h4>步兵</h4>
+                        <p>最基本地面单位，需要移动上前线才可攻击敌方，一回合只可攻击或移动一次。普遍较为廉价，擅长依靠数量优势围剿敌人。</p>
+                    </div>
+                    <div class="card-type">
+                        <h4>坦克</h4>
+                        <p>重甲地面单位，需要移动上前线才可攻击敌方，一回合只可攻击或移动一次。擅长对敌人发起闪击。</p>
+                    </div>
+                    <div class="card-type">
+                        <h4>火炮</h4>
+                        <p>可对任何位置的敌人进行攻击，可移动到前线，一回合只可攻击或移动一次。在安全的支援阵线上对敌人发起炮击。</p>
+                    </div>
+                    <div class="card-type">
+                        <h4>轰炸机</h4>
+                        <p>可对任何位置的敌人进行攻击，可移动到前线，一回合只可攻击或移动一次，攻击时不会有反弹攻击效果。</p>
+                    </div>
+                    <div class="card-type">
+                        <h4>战斗机</h4>
+                        <p>可对任何位置的敌人进行攻击，可移动到前线，一回合只可攻击或移动一次，可避免轰炸机攻击同战机阵线的单位。</p>
+                    </div>
+                    <div class="card-type">
+                        <h4>指令</h4>
+                        <p>一次性使用卡片，对敌方或友方目标施加效果。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>战斗系统</h2>
+                <p>Kards游戏中的战斗系统简单易上手：</p>
+                <ul>
+                    <li>每个基地都有20点生命值，当生命值降至0时，游戏结束</li>
+                    <li>每回合从卡组中抽取一张牌并将其添加至手牌</li>
+                    <li>使用卡牌需要消耗指挥点，指挥点会在回合开始时重新填满</li>
+                    <li>前线机制为游戏引入了射程与移动的概念，使游戏体验更具战略性</li>
+                    <li>玩家可以通过使用卡牌来攻击对手的基地或单位</li>
+                </ul>
+            </div>
+            
+            <div class="info-section">
+                <h2>游戏进阶</h2>
+                <p>通过不断进行游戏来提高自己的军衔，以列兵为起点，向着陆军元帅进发，军衔高低也决定了你每月可获得奖励的数量。</p>
+                <p>游戏会定期举办赛事，赛事奖池从游戏内物品到高达10,000美元的现金不等，适合不同水平的玩家参与。</p>
+            </div>
+            
+            <a href="主界面.html" class="back-link"><i class="fas fa-arrow-left"></i> 返回主页</a>
+        </div>
+    </main>
+    
+    <footer>
+        <p>所有解释权归CH所有 2025 | Kards Team</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

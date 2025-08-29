@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kards Team - 登录注册</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <header>
+        <h1>Kards Team</h1>
+        <nav>
+            <ul>
+                <li><a href="CH.html">CH</a></li>
+                <li><a href="SYC.html">SYC</a></li>
+                <li><a href="YYH.HTML">YYH</a></li>
+                <li><a href="SX.html">SX</a></li>
+                <li><a href="../主界面.html">返回主页</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="login-container">
+        <div class="form-container">
+            <div class="form-tabs">
+                <button id="login-tab" class="active">登录</button>
+                <button id="register-tab">注册</button>
+            </div>
+            
+            <!-- 登录表单 -->
+            <form id="login-form" class="active-form">
+                <div class="form-group">
+                    <label for="login-username">用户名</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">密码</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-btn">登录</button>
+                <p id="login-message" class="message"></p>
+            </form>
+            
+            <!-- 注册表单 -->
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">用户名</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">密码</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">确认密码</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-nickname">昵称</label>
+                    <input type="text" id="register-nickname" required>
+                </div>
+                <button type="submit" class="submit-btn">注册</button>
+                <p id="register-message" class="message"></p>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>所有解释权归CH所有 2025</p>
+    </footer>
+    <script src="./login.js"></script>
+</body>
+</html>
